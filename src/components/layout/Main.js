@@ -4,6 +4,9 @@ import CodePreview from '../previews/CodePreview';
 import Settings from '../settings/Settings';
 
 export const Main = () => {
+
+
+    
   return (
     <main>
       <section>

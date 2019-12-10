@@ -1,11 +1,8 @@
-import React, { useState, useContext, useEffect } from 'react';
-import ButtonContext from '../../context/button/buttonContext';
+import React, { useState, useContext } from 'react';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 export const Settings = () => {
-  const buttonContext = useContext(ButtonContext);
-
-  const { setWidth } = buttonContext;
-
   const [button, setButton] = useState({
     width: 0,
     height: 0,
@@ -17,30 +14,32 @@ export const Settings = () => {
   });
 
   const {
-    width,
-    height,
-    x_padding,
-    y_padding,
-    text,
-    background_color,
-    text_color
+    width
+    // height,
+    // x_padding,
+    // y_padding,
+    // text,
+    // background_color,
+    // text_color
   } = button;
 
-  const onChange = e =>
+  // const onChange = e =>
+  //   setButton({
+  //     ...button,
+  //     [e.target.name]: e.target.value
+  //   });
+
+  const onSliderChange = width => {
     setButton({
-      ...button,
-      [e.target.name]: e.target.value
+      width
     });
+    console.log('Width: ' + width + 'px');
+  };
 
   return (
     <div>
-      <input
-        type='number'
-        name='width'
-        value={width}
-        placeholder='12'
-        onChange={onChange}
-      />
+      <Slider min={0} max={30} onChange={onSliderChange} />
+      <p>{width}px</p>
     </div>
   );
 };
