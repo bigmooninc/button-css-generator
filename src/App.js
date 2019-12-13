@@ -1,14 +1,10 @@
 import React from 'react';
 import './App.css';
 import Main from './components/layout/Main';
-import ButtonState from './context/button/ButtonState';
+import 'semantic-ui-css/semantic.min.css';
 
 function App() {
-  return (
-    <ButtonState>
-      <Main />
-    </ButtonState>
-  );
+  return <Main />;
 }
 
 export default App;
